@@ -29,11 +29,15 @@
   <header>
     <nav>
       {#if session}
-        <a href="/">📝 Home</a>
-        <a href="/new">➕ New</a>
-        <a href="/logout">Logout ({session.user.email})</a>
+        <a href="/"><i class="ph-duotone ph-notebook"></i> Entries</a>
+        <a href="/new">
+          <i class="ph-duotone ph-plus-circle"></i> New
+        </a>
+        <a href="/logout"><i class="ph-duotone ph-sign-out"></i>
+           Logout ({session.user.email})
+        </a>
       {:else}
-        <a href="/login">Login / Register</a>
+        <a href="/login"><i class="ph-duotone ph-sign-in"></i> Login / Register</a>
       {/if}
     </nav>
   </header>
@@ -45,7 +49,8 @@
   @import 'https://unpkg.com/@picocss/pico@latest/css/pico.min.css';
 
   :global(body) {
-    padding: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   :global(.pill) {
@@ -58,5 +63,9 @@
 
   header {
     margin-block-end: 1rem;
+  }
+
+  nav i {
+    vertical-align: baseline;
   }
 </style>

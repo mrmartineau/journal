@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-  <title>📝 Journal Home</title>
+  <title>📝 Journal</title>
 </svelte:head>
 
 <!-- {#if journals?.length}
