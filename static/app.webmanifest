@@ -1,0 +1,8 @@
+{
+  "name": "📝 Journal",
+  "short_name": "Journal",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "A simple journal app"
+}
