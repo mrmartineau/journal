@@ -12,7 +12,10 @@ export const load: PageServerLoad = async ({
     throw redirect(303, '/');
   }
 
-  const { data: journals } = await supabase.from('journals').select('*');
+  const { data: journals } = await supabase
+    .from('journals')
+    .select('*')
+    .match({ status: 'active' });
   const { data: entry } = await supabase
     .from('journal_entries')
     .select(`*, journals(name, id)`)
