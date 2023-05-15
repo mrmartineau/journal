@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { formatDate } from '$lib/dates';
-  import SvelteMarkdown from 'svelte-markdown';
   import type { PageData } from './$types';
+  import JournalEntry from '$lib/JournalEntry.svelte';
 
   export let data: PageData;
   $: ({ entries, journal } = data);
@@ -16,20 +15,7 @@
 {/if}
 
 {#if entries}
-  {#each entries as item}
-    <article>
-      <header>
-        {#if item.journals.name}
-          <span class="pill">{item.journals.name ?? ''}</span>
-        {/if}
-        {#if item.date}<small>
-            <time>{formatDate(item.date)}</time>
-          </small>{/if}
-      </header>
-      <SvelteMarkdown source="{item.entry}" />
-      <footer>
-        <a href="/entry/{item.id}">Link</a>
-      </footer>
-    </article>
+  {#each entries as entry}
+    <JournalEntry entry="{entry}" />
   {/each}
 {/if}

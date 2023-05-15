@@ -12,5 +12,5 @@
 
 <a href="/logout">
   <i class="ph-duotone ph-sign-out"></i>
-   Logout
+  Logout
 </a>

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { formatDate } from '$lib/dates';
-  import SvelteMarkdown from 'svelte-markdown';
   import type { PageData } from './$types';
+  import JournalEntry from '$lib/JournalEntry.svelte';
 
   export let data: PageData;
   $: ({ session, entries, journals } = data);
@@ -29,43 +29,13 @@
   </h3>
   {#if entries}
     {#each entries as item}
-      <article>
-        <header>
-          {#if item.journals?.name}
-            <a href="{`/journal/${item.journals.id}`}">
-              <span class="pill">{item.journals.name}</span>
-            </a>
-          {/if}
-          {#if item.date}
-            <span>
-              <i class="ph-duotone ph-calendar-blank"></i>
-              <time>{formatDate(item.date)}</time>
-            </span>
-          {/if}
-        </header>
-        <SvelteMarkdown source="{item.entry}" />
-        <footer>
-          <a href="/entry/{item.id}">Link</a>
-        </footer>
-      </article>
+      <JournalEntry entry="{item}" isViewDetail="{false}" />
     {/each}
   {/if}
 {/if}
 
 <style>
-  header {
-    font-size: 0.875rem;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-  }
   h3 {
     text-align: center;
-  }
-
-  span {
-    display: flex;
-    gap: 0.2rem;
-    align-items: center;
   }
 </style>

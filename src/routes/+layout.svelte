@@ -31,20 +31,20 @@
       {#if session}
         <a href="/">
           <i class="ph-duotone ph-notebook"></i>
-           Entries
+          Entries
         </a>
         <a href="/new">
           <i class="ph-duotone ph-calendar-plus"></i>
-           New
+          New
         </a>
         <a href="/profile">
           <i class="ph-duotone ph-user-circle"></i>
-           Admin
+          Admin
         </a>
       {:else}
         <a href="/login">
           <i class="ph-duotone ph-sign-in"></i>
-           Login / Register
+          Login / Register
         </a>
       {/if}
     </nav>
