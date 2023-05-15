@@ -6,6 +6,11 @@
 </script>
 
 <h3>Hello, {user.email}</h3>
-<p>User ID: <code>{user.id}</code></p>
+<p>
+  User ID: <code>{user.id}</code>
+</p>
 
-<a href="/logout"><i class="ph-duotone ph-sign-out"></i> Logout</a>
+<a href="/logout">
+  <i class="ph-duotone ph-sign-out"></i>
+   Logout
+</a>

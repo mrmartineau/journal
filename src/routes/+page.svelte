@@ -5,6 +5,7 @@
 
   export let data: PageData;
   $: ({ session, entries, journals } = data);
+  export let today = new Date();
 </script>
 
 <svelte:head>
@@ -22,6 +23,10 @@
 {/if} -->
 
 {#if session}
+  <h3>
+    <i class="ph-duotone ph-calendar-blank"></i>
+    {formatDate(today)}
+  </h3>
   {#if entries}
     {#each entries as item}
       <article>
@@ -32,9 +37,10 @@
             </a>
           {/if}
           {#if item.date}
-            <small>
+            <span>
+              <i class="ph-duotone ph-calendar-blank"></i>
               <time>{formatDate(item.date)}</time>
-            </small>
+            </span>
           {/if}
         </header>
         <SvelteMarkdown source="{item.entry}" />
@@ -45,3 +51,21 @@
     {/each}
   {/if}
 {/if}
+
+<style>
+  header {
+    font-size: 0.875rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  h3 {
+    text-align: center;
+  }
+
+  span {
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+  }
+</style>

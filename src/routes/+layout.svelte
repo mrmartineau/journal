@@ -29,13 +29,23 @@
   <header>
     <nav>
       {#if session}
-        <a href="/"><i class="ph-duotone ph-notebook"></i> Entries</a>
-        <a href="/new">
-          <i class="ph-duotone ph-plus-circle"></i> New
+        <a href="/">
+          <i class="ph-duotone ph-notebook"></i>
+           Entries
         </a>
-        <a href="/profile"><i class="ph-duotone ph-user-circle"></i> Admin</a>
+        <a href="/new">
+          <i class="ph-duotone ph-calendar-plus"></i>
+           New
+        </a>
+        <a href="/profile">
+          <i class="ph-duotone ph-user-circle"></i>
+           Admin
+        </a>
       {:else}
-        <a href="/login"><i class="ph-duotone ph-sign-in"></i> Login / Register</a>
+        <a href="/login">
+          <i class="ph-duotone ph-sign-in"></i>
+           Login / Register
+        </a>
       {/if}
     </nav>
   </header>

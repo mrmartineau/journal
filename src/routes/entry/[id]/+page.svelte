@@ -21,29 +21,50 @@
       </a>
     {/if}
     {#if entry.date}
-      <small>
+      <span>
+        <i class="ph-duotone ph-calendar-blank"></i>
         <time>{formatDate(entry.date)}</time>
-      </small>
+      </span>
     {/if}
   </header>
   <SvelteMarkdown source="{entry.entry}" />
 
-  <div class="grid">
-    <a href="{`${entry.id}/edit`}">Edit</a>
-    <dialog id="d">
-      <form method="POST" action="?/delete">
-        <article>
-          <header>
-            <p>Delete this entry?</p>
-            <input type="hidden" name="id" value="{entry.id}" />
-          </header>
-          <footer>
-            <button aria-label="Delete this entry">Confirm</button>
-          </footer>
-        </article>
-      </form>
-    </dialog>
+  <footer>
+    <div class="grid">
+      <a href="{`${entry.id}/edit`}">Edit</a>
+      <button onclick="d.showModal()">Delete</button>
 
-    <button onclick="d.showModal()">Delete</button>
-  </div>
+      <dialog id="d">
+        <form method="POST" action="?/delete">
+          <article>
+            <header>
+              <p>Delete this entry?</p>
+              <input type="hidden" name="id" value="{entry.id}" />
+            </header>
+            <footer>
+              <button aria-label="Delete this entry">Confirm</button>
+            </footer>
+          </article>
+        </form>
+      </dialog>
+    </div>
+  </footer>
 </article>
+
+<style>
+  header {
+    font-size: 0.875rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  h3 {
+    text-align: center;
+  }
+
+  span {
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+  }
+</style>
