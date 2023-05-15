@@ -5,12 +5,7 @@
   $: ({ user } = data);
 </script>
 
-<div>Protected content for {user.email}</div>
-<pre>{JSON.stringify(user, null, 2)}</pre>
+<h3>Hello, {user.email}</h3>
+<p>User ID: <code>{user.id}</code></p>
 
-<style>
-  pre {
-    padding: 1rem;
-    margin: 1rem 0;
-  }
-</style>
+<a href="/logout"><i class="ph-duotone ph-sign-out"></i> Logout</a>

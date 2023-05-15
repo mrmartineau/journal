@@ -33,9 +33,7 @@
         <a href="/new">
           <i class="ph-duotone ph-plus-circle"></i> New
         </a>
-        <a href="/logout"><i class="ph-duotone ph-sign-out"></i>
-           Logout ({session.user.email})
-        </a>
+        <a href="/profile"><i class="ph-duotone ph-user-circle"></i> Admin</a>
       {:else}
         <a href="/login"><i class="ph-duotone ph-sign-in"></i> Login / Register</a>
       {/if}
