@@ -1,0 +1,38 @@
+:root {
+  color-scheme: light;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--f-base);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+.icon {
+  opacity: 0.6;
+}
+
+body {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+a {
+  transition: all 250ms ease-in-out;
+  color: var(--indigo10);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--indigo11);
+}
