@@ -2,6 +2,7 @@
   import { formatDate } from '$lib/dates';
   import type { PageData } from './$types';
   import JournalEntry from '$lib/JournalEntry.svelte';
+  import EntryForm from '$lib/EntryForm.svelte';
 
   export let data: PageData;
   $: ({ session, entries, journals } = data);
@@ -23,10 +24,13 @@
 {/if} -->
 
 {#if session}
-  <h3>
+  <h3 class="j-flex-centre">
     <i class="ph-duotone ph-calendar-blank"></i>
     {formatDate(today)}
   </h3>
+
+  <EntryForm journals="{journals}" />
+
   {#if entries}
     {#each entries as item}
       <JournalEntry entry="{item}" isViewDetail="{false}" />

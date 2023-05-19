@@ -19,7 +19,10 @@
   <title>➕ New entry</title>
 </svelte:head>
 
-<h1><i class="ph-duotone ph-plus-circle"></i> New entry</h1>
+<h1>
+  <i class="ph-duotone ph-plus-circle"></i>
+  New entry
+</h1>
 
 <form method="post" use:enhance>
   <fieldset>

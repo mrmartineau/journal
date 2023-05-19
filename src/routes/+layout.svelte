@@ -25,17 +25,13 @@
   <title>{$page.data.title}</title>
 </svelte:head>
 
-<main class="container">
-  <header>
+<header>
+  <div class="j-container">
     <nav>
       {#if session}
         <a href="/">
           <i class="ph-duotone ph-notebook"></i>
           Entries
-        </a>
-        <a href="/new">
-          <i class="ph-duotone ph-calendar-plus"></i>
-          New
         </a>
         <a href="/profile">
           <i class="ph-duotone ph-user-circle"></i>
@@ -48,31 +44,25 @@
         </a>
       {/if}
     </nav>
-  </header>
+  </div>
+</header>
 
+<main>
   <slot />
 </main>
 
 <style>
-  @import 'https://unpkg.com/@picocss/pico@latest/css/pico.min.css';
-
-  :global(body) {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  :global(.pill) {
-    color: var(--muted-color);
-    background: var(--muted-border-color);
-    border-radius: 0.25rem;
-    padding: 0.25rem 0.5rem;
-    text-transform: uppercase;
-  }
+  /* @import 'https://unpkg.com/@picocss/pico@latest/css/pico.min.css'; */
+  @import '../css/index.css';
 
   header {
     margin-block-end: 1rem;
   }
-
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   nav i {
     vertical-align: baseline;
   }
