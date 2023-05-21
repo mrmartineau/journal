@@ -38,7 +38,7 @@
         {formatDate(date)}
       {/if}
     </h3>
-    <form method="post" use:enhance>
+    <form method="post" use:enhance class="j-form">
       <div class="form-main">
         <fieldset>
           <label for="entry" class="visually-hidden">Entry</label>
@@ -104,9 +104,9 @@
             </label>
           </div> -->
           {#if journals?.length}
-            <fieldset class="j-journals-list">
+            <fieldset class="j-entryForm-journals-container">
               <legend class="visually-hidden">Journal</legend>
-              <div class="grid">
+              <div class="j-entryForm-journals-list">
                 {#each journals as journalItem}
                   <label>
                     <input
@@ -121,7 +121,7 @@
               </div>
             </fieldset>
           {/if}
-          <button type="submit">Submit</button>
+          <button type="submit">Save</button>
         </div>
       </div>
     </form>
@@ -131,16 +131,10 @@
 <style lang="postcss">
   .form-container {
     border-bottom: 1px solid var(--theme4);
-    padding: 0 var(--space-m) var(--space-m);
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    position: relative;
+    padding-bottom: var(--space-m);
   }
   @media screen and (min-width: 850px) {
-    form {
+    .j-form {
       flex-direction: row;
     }
   }
@@ -149,11 +143,13 @@
     align-items: baseline;
     gap: var(--space-xs);
     margin-block-end: 0;
+    flex-wrap: wrap;
 
     span {
       font-size: var(--step--1);
       color: var(--theme9);
       font-variation-settings: 'wght' 400, 'wdth' 125, 'ital' 0;
+      flex-shrink: 0;
     }
   }
   .form-main {
@@ -168,13 +164,8 @@
     position: sticky;
     top: 1rem;
   }
-  fieldset {
-    all: unset;
-    display: block;
-  }
-  label {
-    display: block;
-    margin-block-end: 0.3rem;
+  input[type='date'] {
+    width: fit-content;
   }
   textarea {
     all: unset;
@@ -186,7 +177,23 @@
     font-size: var(--step-1);
     color: var(--accent10);
   }
-  .j-journals-list {
+  .j-entryForm-journals-list {
     margin-block-start: var(--space-xs);
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+
+    label {
+      flex-shrink: 0;
+      vertical-align: text-top;
+    }
+    @media screen and (min-width: 850px) {
+      display: block;
+    }
+  }
+  button {
+    margin-block-start: var(--space-s);
+    line-height: 2.7;
+    padding: 0 var(--space-m);
   }
 </style>

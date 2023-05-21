@@ -25,33 +25,31 @@
   <title>{$page.data.title}</title>
 </svelte:head>
 
-<header>
-  <div class="j-container">
-    <nav>
-      {#if session}
-        <a href="/">
-          <i class="ph-duotone ph-notebook"></i>
-          Entries
-        </a>
-        <a href="/profile">
-          <i class="ph-duotone ph-user-circle"></i>
-          Admin
-        </a>
-      {:else}
-        <a href="/login">
-          <i class="ph-duotone ph-sign-in"></i>
-          Login / Register
-        </a>
-      {/if}
-    </nav>
-  </div>
+<header class="j-container">
+  <nav>
+    {#if session}
+      <a href="/">
+        <i class="ph-duotone ph-notebook"></i>
+        Entries
+      </a>
+      <a href="/profile">
+        <i class="ph-duotone ph-user-circle"></i>
+        Admin
+      </a>
+    {:else}
+      <a href="/login">
+        <i class="ph-duotone ph-sign-in"></i>
+        Login / Register
+      </a>
+    {/if}
+  </nav>
 </header>
 
 <main>
   <slot />
 </main>
 
-<style lang="postcss">
+<style>
   @import '../css/index.css';
 
   header {
@@ -63,8 +61,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    i {
-      vertical-align: baseline;
-    }
+  }
+  nav i {
+    vertical-align: baseline;
   }
 </style>

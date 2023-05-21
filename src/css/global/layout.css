@@ -1,6 +1,6 @@
 .j-container {
   max-width: 1400px;
-  width: 100%;
+  /* width: 100%; */
   margin-inline-start: auto;
   margin-inline-end: auto;
   padding-inline-start: var(--space-m);

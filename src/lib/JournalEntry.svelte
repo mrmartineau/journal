@@ -49,8 +49,6 @@
     padding: var(--space-m);
   }
   article {
-    margin-inline-start: auto;
-    margin-inline-end: auto;
     max-width: 65ch;
   }
   footer {

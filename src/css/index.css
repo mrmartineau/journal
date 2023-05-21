@@ -8,4 +8,5 @@
 @import 'utilities/hidden.css';
 
 @import 'components/button.css';
+@import 'components/form.css';
 @import 'components/dialog.css';

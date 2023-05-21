@@ -1,0 +1,35 @@
+.j-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+
+  footer {
+    margin-block-start: var(--space-s);
+  }
+}
+fieldset {
+  all: unset;
+  display: block;
+}
+label {
+  display: block;
+  margin-block-end: var(--space-2xs);
+}
+input[type='text'],
+input[type='date'],
+input[type='email'],
+input[type='password'] {
+  all: unset;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 0.2rem;
+  padding: var(--space-2xs) var(--space-xs);
+  border: 2px solid var(--theme6);
+
+  &:focus {
+    border-color: var(--accent8);
+  }
+}
+::placeholder {
+  color: var(--accent6);
+}
