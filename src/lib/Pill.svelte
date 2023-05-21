@@ -7,7 +7,7 @@
 <style lang="postcss">
   a {
     color: var(--muted-color);
-    background: var(--slate5);
+    background: var(--theme5);
     border-radius: 0.25rem;
     padding: 0 var(--space-2xs);
     text-transform: uppercase;
@@ -15,7 +15,7 @@
     line-height: 1.7;
 
     &:hover {
-      background: var(--slate3);
+      background: var(--theme3);
     }
   }
 </style>

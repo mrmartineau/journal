@@ -75,7 +75,7 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--space-s);
   }
   fieldset {
     all: unset;

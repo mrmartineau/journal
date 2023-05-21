@@ -1,0 +1,14 @@
+button {
+  border: 0;
+  background: var(--accent10);
+  color: var(--accent1);
+  border-radius: 0.25rem;
+  padding: 0 var(--space-2xs);
+  text-decoration: none;
+  line-height: 1.7;
+  font-size: var(--step--1);
+
+  &:hover {
+    background: var(--accent8);
+  }
+}

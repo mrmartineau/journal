@@ -25,14 +25,15 @@
 body {
   padding-top: 1rem;
   padding-bottom: 1rem;
+  margin: 0;
 }
 
 a {
   transition: all 250ms ease-in-out;
-  color: var(--indigo10);
+  color: var(--accent10);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--indigo11);
+  color: var(--accent11);
 }

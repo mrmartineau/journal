@@ -1,0 +1,133 @@
+/* Radix colours from https://www.radix-ui.com/docs/colors/palette-composition/the-scales */
+
+/* Slate / Indigo */
+:root {
+  --mauve1: hsl(300, 20%, 99%);
+  --mauve2: hsl(300, 7.7%, 97.5%);
+  --mauve3: hsl(294, 5.5%, 95.3%);
+  --mauve4: hsl(289, 4.7%, 93.3%);
+  --mauve5: hsl(283, 4.4%, 91.3%);
+  --mauve6: hsl(278, 4.1%, 89.1%);
+  --mauve7: hsl(271, 3.9%, 86.3%);
+  --mauve8: hsl(255, 3.7%, 78.8%);
+  --mauve9: hsl(252, 4%, 57.3%);
+  --mauve10: hsl(253, 3.5%, 53.5%);
+  --mauve11: hsl(252, 4%, 44.8%);
+  --mauve12: hsl(260, 25%, 11%);
+  --mauveDark1: hsl(246, 6%, 9%);
+  --mauveDark2: hsl(240, 5.1%, 11.6%);
+  --mauveDark3: hsl(241, 5%, 14.3%);
+  --mauveDark4: hsl(242, 4.9%, 16.5%);
+  --mauveDark5: hsl(243, 4.9%, 18.8%);
+  --mauveDark6: hsl(244, 4.9%, 21.5%);
+  --mauveDark7: hsl(245, 4.9%, 25.4%);
+  --mauveDark8: hsl(247, 4.8%, 32.5%);
+  --mauveDark9: hsl(252, 4%, 45.2%);
+  --mauveDark10: hsl(247, 3.4%, 50.7%);
+  --mauveDark11: hsl(253, 4%, 63.7%);
+  --mauveDark12: hsl(256, 6%, 93.2%);
+
+  --slate1: hsl(206, 30%, 98.8%);
+  --slate2: hsl(210, 16.7%, 97.6%);
+  --slate3: hsl(209, 13.3%, 95.3%);
+  --slate4: hsl(209, 12.2%, 93.2%);
+  --slate5: hsl(208, 11.7%, 91.1%);
+  --slate6: hsl(208, 11.3%, 88.9%);
+  --slate7: hsl(207, 11.1%, 85.9%);
+  --slate8: hsl(205, 10.7%, 78%);
+  --slate9: hsl(206, 6%, 56.1%);
+  --slate10: hsl(206, 5.8%, 52.3%);
+  --slate11: hsl(206, 6%, 43.5%);
+  --slate12: hsl(206, 24%, 9%);
+  --slateDark1: hsl(200, 7%, 8.8%);
+  --slateDark2: hsl(195, 7.1%, 11%);
+  --slateDark3: hsl(197, 6.8%, 13.6%);
+  --slateDark4: hsl(198, 6.6%, 15.8%);
+  --slateDark5: hsl(199, 6.4%, 17.9%);
+  --slateDark6: hsl(201, 6.2%, 20.5%);
+  --slateDark7: hsl(203, 6%, 24.3%);
+  --slateDark8: hsl(207, 5.6%, 31.6%);
+  --slateDark9: hsl(206, 6%, 43.9%);
+  --slateDark10: hsl(206, 5.2%, 49.5%);
+  --slateDark11: hsl(206, 6%, 63%);
+  --slateDark12: hsl(210, 6%, 93%);
+
+  --indigo1: hsl(225, 60%, 99.4%);
+  --indigo2: hsl(223, 100%, 98.6%);
+  --indigo3: hsl(223, 98.4%, 97.1%);
+  --indigo4: hsl(223, 92.9%, 95%);
+  --indigo5: hsl(224, 87.1%, 92%);
+  --indigo6: hsl(224, 81.9%, 87.8%);
+  --indigo7: hsl(225, 77.4%, 82.1%);
+  --indigo8: hsl(226, 75.4%, 74.5%);
+  --indigo9: hsl(226, 70%, 55.5%);
+  --indigo10: hsl(226, 58.6%, 51.3%);
+  --indigo11: hsl(226, 55%, 45%);
+  --indigo12: hsl(226, 62%, 17%);
+  --indigoDark1: hsl(229, 24%, 10%);
+  --indigoDark2: hsl(230, 36.4%, 12.9%);
+  --indigoDark3: hsl(228, 43.3%, 17.5%);
+  --indigoDark4: hsl(227, 47.2%, 21%);
+  --indigoDark5: hsl(227, 50%, 24.1%);
+  --indigoDark6: hsl(226, 52.9%, 28.2%);
+  --indigoDark7: hsl(226, 56%, 34.5%);
+  --indigoDark8: hsl(226, 58.2%, 44.1%);
+  --indigoDark9: hsl(226, 70%, 55.5%);
+  --indigoDark10: hsl(227, 75.2%, 61.6%);
+  --indigoDark11: hsl(228, 100%, 75.9%);
+  --indigoDark12: hsl(226, 83%, 96.3%);
+
+  --theme1: var(--mauve1);
+  --theme2: var(--mauve2);
+  --theme3: var(--mauve3);
+  --theme4: var(--mauve4);
+  --theme5: var(--mauve5);
+  --theme6: var(--mauve6);
+  --theme7: var(--mauve7);
+  --theme8: var(--mauve8);
+  --theme9: var(--mauve9);
+  --theme10: var(--mauve10);
+  --theme11: var(--mauve12);
+  --theme12: var(--mauve12);
+  --accent1: var(--indigo1);
+  --accent2: var(--indigo2);
+  --accent3: var(--indigo3);
+  --accent4: var(--indigo4);
+  --accent5: var(--indigo5);
+  --accent6: var(--indigo6);
+  --accent7: var(--indigo7);
+  --accent8: var(--indigo8);
+  --accent9: var(--indigo9);
+  --accent10: var(--indigo10);
+  --accent11: var(--indigo12);
+  --accent12: var(--indigo12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme1: var(--mauveDark1);
+    --theme2: var(--mauveDark2);
+    --theme3: var(--mauveDark3);
+    --theme4: var(--mauveDark4);
+    --theme5: var(--mauveDark5);
+    --theme6: var(--mauveDark6);
+    --theme7: var(--mauveDark7);
+    --theme8: var(--mauveDark8);
+    --theme9: var(--mauveDark9);
+    --theme10: var(--mauveDark10);
+    --theme11: var(--mauveDark12);
+    --theme12: var(--mauveDark12);
+    --accent1: var(--indigoDark1);
+    --accent2: var(--indigoDark2);
+    --accent3: var(--indigoDark3);
+    --accent4: var(--indigoDark4);
+    --accent5: var(--indigoDark5);
+    --accent6: var(--indigoDark6);
+    --accent7: var(--indigoDark7);
+    --accent8: var(--indigoDark8);
+    --accent9: var(--indigoDark9);
+    --accent10: var(--indigoDark10);
+    --accent11: var(--indigoDark12);
+    --accent12: var(--indigoDark12);
+  }
+}

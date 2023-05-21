@@ -57,3 +57,16 @@ h3 {
 .lede + * {
   --flow-space: 2em;
 }
+
+article {
+  code {
+    font-variation-settings: 'wght' 600;
+    font-family: var(--f-mono);
+    font-size: var(--step--1);
+  }
+
+  code::before,
+  code::after {
+    content: '`';
+  }
+}

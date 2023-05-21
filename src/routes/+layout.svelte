@@ -11,7 +11,7 @@
   onMount(() => {
     const {
       data: { subscription }
-    } = supabase.auth.onAuthStateChange((event, _session) => {
+    } = supabase.auth.onAuthStateChange((_, _session) => {
       if (_session?.expires_at !== session?.expires_at) {
         invalidate('supabase:auth');
       }
@@ -51,19 +51,20 @@
   <slot />
 </main>
 
-<style>
-  /* @import 'https://unpkg.com/@picocss/pico@latest/css/pico.min.css'; */
+<style lang="postcss">
   @import '../css/index.css';
 
   header {
     margin-block-end: 1rem;
+    padding-inline-start: var(--space-m);
+    padding-inline-end: var(--space-m);
   }
   nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  nav i {
-    vertical-align: baseline;
+    i {
+      vertical-align: baseline;
+    }
   }
 </style>

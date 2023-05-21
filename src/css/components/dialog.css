@@ -1,0 +1,8 @@
+dialog {
+  border-radius: 0.5rem;
+  border: 1px solid var(--theme7);
+
+  p {
+    margin-block-start: 0;
+  }
+}

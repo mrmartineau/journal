@@ -1,3 +1,4 @@
+@import 'global/colours.css';
 @import 'global/vars.css';
 @import 'global/utopia.css';
 @import 'global/global.css';
@@ -5,3 +6,6 @@
 @import 'global/typography.css';
 
 @import 'utilities/hidden.css';
+
+@import 'components/button.css';
+@import 'components/dialog.css';

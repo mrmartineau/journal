@@ -1,6 +1,6 @@
 export const formatDate = (date: string | Date) => {
   return new Intl.DateTimeFormat('en-GB', {
-    dateStyle: 'medium'
+    dateStyle: 'full'
   }).format(new Date(date));
 };
 export const formatDateTime = (date: string | Date) => {
