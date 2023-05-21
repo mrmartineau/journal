@@ -1,7 +1,13 @@
-button {
+button,
+input[type='submit'],
+input[type='button'],
+input[type='reset'] {
+  --bg: var(--accent10);
+  --color: var(--accent1);
+  --focus: var(--accent8);
   border: 0;
-  background: var(--accent10);
-  color: var(--accent1);
+  background: var(--bg);
+  color: var(--color);
   border-radius: 0.25rem;
   padding: 0 var(--space-2xs);
   text-decoration: none;
@@ -10,5 +16,11 @@ button {
 
   &:hover {
     background: var(--accent8);
+  }
+
+  &.secondary {
+    --bg: var(--theme10);
+    --color: var(--theme1);
+    --focus: var(--theme8);
   }
 }

@@ -4,7 +4,7 @@
 
 <form method="POST" action="?/login" class="j-form">
   <div class="j-container">
-    <div class="j-flex-centre">
+    <div class="j-login-fields j-flex-centre">
       <fieldset>
         <label for="email">Email</label>
         <input name="email" id="email" type="email" autocomplete="username" />
@@ -25,3 +25,9 @@
     </footer>
   </div>
 </form>
+
+<style>
+  .j-login-fields {
+    flex-wrap: wrap;
+  }
+</style>

@@ -30,7 +30,6 @@
   <div class="j-container">
     <h3>
       {#if entry?.entry}Edit: {/if}
-      <i class="ph-duotone ph-calendar-blank"></i>
       {#if dayString}
         {dayString}
         <span>{formatDate(date)}</span>
@@ -70,14 +69,17 @@
             <label for="date" class="visually-hidden">
               {#if multipleDays}Start date{:else}Date{/if}
             </label>
-            <input
-              type="date"
-              id="date"
-              name="date"
-              bind:value="{date}"
-              on:input="{() => console.log('New value:', date)}"
-              required
-            />
+            <div class="j-date-field j-flex-centre">
+              <i class="ph-duotone ph-calendar-blank"></i>
+              <input
+                type="date"
+                id="date"
+                name="date"
+                bind:value="{date}"
+                on:input="{() => console.log('New value:', date)}"
+                required
+              />
+            </div>
           </fieldset>
           {#if multipleDays}
             <fieldset>
@@ -164,8 +166,11 @@
     position: sticky;
     top: 1rem;
   }
-  input[type='date'] {
+  /* input[type='date'] {
     width: fit-content;
+  } */
+  .j-date-field {
+    gap: var(--space-2xs);
   }
   textarea {
     all: unset;
