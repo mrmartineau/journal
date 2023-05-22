@@ -11,7 +11,9 @@
 </svelte:head>
 
 {#if journal?.name}
-  <h2>{journal?.name}</h2>
+  <div class="j-container">
+    <h2>{journal?.name}</h2>
+  </div>
 {/if}
 
 {#if entries}
