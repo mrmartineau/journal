@@ -5,22 +5,45 @@ input[type='reset'] {
   --bg: var(--accent10);
   --color: var(--accent1);
   --focus: var(--accent8);
+  --padding: 0 var(--space-2xs);
+  --font-size: var(--step--1);
+  --border-radius: 0.25rem;
+  --line-height: 1.7;
   border: 0;
   background: var(--bg);
   color: var(--color);
-  border-radius: 0.25rem;
-  padding: 0 var(--space-2xs);
+  border-radius: var(--border-radius);
+  padding: var(--padding);
   text-decoration: none;
-  line-height: 1.7;
-  font-size: var(--step--1);
+  line-height: var(--line-height);
+  font-size: var(--font-size);
+  flex-shrink: 0;
 
+  [aria-pressed='true'],
   &:hover {
-    background: var(--accent8);
+    --bg: var(--accent8);
   }
 
-  &.secondary {
+  &.j-btn-secondary {
     --bg: var(--theme10);
     --color: var(--theme1);
     --focus: var(--theme8);
+  }
+
+  &.j-btn-ai {
+    --bg: transparent;
+    --color: var(--theme10);
+    --focus: var(--theme8);
+    --padding: 0 var(--space-2xs);
+    --font-size: var(--step--3);
+    --line-height: 1.7;
+    --border-radius: 2rem;
+    border: 1px solid;
+
+    [aria-pressed='true'],
+    &:hover {
+      --color: var(--theme11);
+      --bg: transparent;
+    }
   }
 }

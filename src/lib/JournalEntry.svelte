@@ -8,45 +8,45 @@
 </script>
 
 <div class="j-entry">
-  <article>
-    {#if entry.date}
-      <div class="j-date j-flex-centre">
-        <i class="ph-duotone ph-calendar-blank"></i>
-        <time>{formatDate(entry.date)}</time>
-      </div>
-    {/if}
-
-    <SvelteMarkdown source="{entry.entry}" />
-
-    <footer class="j-flex-centre">
-      {#if entry.journals?.name}
-        <Pill href="{`/journal/${entry.journals.id}`}">
-          {entry.journals.name}
-        </Pill>
+  <div class="j-container">
+    <article>
+      {#if entry.date}
+        <div class="j-date j-flex-centre">
+          <i class="ph-duotone ph-calendar-blank"></i>
+          <time>{formatDate(entry.date)}</time>
+        </div>
       {/if}
-      {#if !isViewDetail}
-        <a href="/entry/{entry.id}">Link</a>
-      {:else}
-        <a href="{entry.id}/edit">Edit</a>
-        <button onclick="d.showModal()">Delete</button>
-        <dialog id="d">
-          <form method="POST" action="?/delete" class="flow">
-            <p>Delete this entry?</p>
-            <input type="hidden" name="id" value="{entry.id}" />
-            <footer>
-              <button aria-label="Delete this entry">Confirm</button>
-            </footer>
-          </form>
-        </dialog>
-      {/if}
-    </footer>
-  </article>
+      <SvelteMarkdown source="{entry.entry}" />
+      <footer class="j-flex-centre">
+        {#if entry.journals?.name}
+          <Pill href="{`/journal/${entry.journals.id}`}">
+            {entry.journals.name}
+          </Pill>
+        {/if}
+        {#if !isViewDetail}
+          <a href="/entry/{entry.id}">Link</a>
+        {:else}
+          <a href="{entry.id}/edit">Edit</a>
+          <button onclick="d.showModal()">Delete</button>
+          <dialog id="d">
+            <form method="POST" action="?/delete" class="flow">
+              <p>Delete this entry?</p>
+              <input type="hidden" name="id" value="{entry.id}" />
+              <footer>
+                <button aria-label="Delete this entry">Confirm</button>
+              </footer>
+            </form>
+          </dialog>
+        {/if}
+      </footer>
+    </article>
+  </div>
 </div>
 
 <style lang="postcss">
   .j-entry {
-    border-bottom: 1px solid var(--theme4);
-    padding: var(--space-m);
+    border-bottom: 1px solid var(--accent4);
+    padding: var(--space-m) 0;
   }
   article {
     max-width: 65ch;

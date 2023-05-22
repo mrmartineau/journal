@@ -1,0 +1,7 @@
+POST http://localhost:6400/api/ai
+Content-Type: application/json
+
+{
+  "action": "improve",
+  "entry": "I woke up at 4:40am and couldn’t get back to sleep, so decided to come downstairs and work on the journal app.Bamber, Morgan and I watched the Super Mario Bros movie before everyone else woke up.\nThe day was very chilled. Morgan and Alice did lots of gardening. Bamber and I went for another bike ride. I can’t wait until he’s old enough when we can go on proper rides together."
+}

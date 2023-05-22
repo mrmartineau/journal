@@ -20,7 +20,7 @@
       </fieldset>
     </div>
     <footer class="j-flex-centre">
-      <button formaction="?/register" class="secondary">Register</button>
+      <button formaction="?/register" class="j-btn-secondary">Register</button>
       <button>Log in</button>
     </footer>
   </div>

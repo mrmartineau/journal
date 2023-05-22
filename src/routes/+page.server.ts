@@ -22,7 +22,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 };
 
 export const actions = {
-  default: async ({ request, locals: { supabase, getSession } }) => {
+  save: async ({ request, locals: { supabase, getSession } }) => {
     const session = await getSession();
     const formData = await request.formData();
     const formDataObject = parseForm(formData);
@@ -39,5 +39,19 @@ export const actions = {
     if (newEntry?.length) {
       throw redirect(303, `/entry/${newEntry[0].id}`);
     }
+  },
+  ai: async ({ request, locals: { supabase, getSession } }) => {
+    const session = await getSession();
+    const formData = await request.formData();
+    const formDataObject = parseForm(formData);
+    console.log(`🚀 ~ aiLookup: ~ formDataObject:`, formDataObject);
+
+    // if (error) {
+    //   console.error(`🚀 ~ default: ~ error`, error);
+    //   throw error;
+    // }
+    // if (newEntry?.length) {
+    //   throw redirect(303, `/entry/${newEntry[0].id}`);
+    // }
   }
 };
