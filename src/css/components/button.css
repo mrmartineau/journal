@@ -30,6 +30,7 @@ input[type='reset'] {
   display: inline-flex;
   align-items: center;
   gap: var(--space-3xs);
+  font-family: var(--f-base);
 
   i.loading {
     animation: spin 1s linear infinite;
@@ -56,12 +57,13 @@ input[type='reset'] {
     --font-size: var(--step--3);
     --line-height: 1.7;
     --border-radius: 2rem;
-    --border: var(--accentA10);
+    --border: var(--accentA7);
     border: 1px solid var(--border);
 
+    &[disabled][aria-pressed='true'],
     &:not([disabled]):hover {
       --color: var(--focus);
-      --bg: transparent;
+      --bg: var(--accentA5);
       --border: var(--accentA11);
     }
 
@@ -70,9 +72,6 @@ input[type='reset'] {
     }
 
     &[disabled][aria-pressed='true'] {
-      --color: var(--focus);
-      --bg: transparent;
-      --border: var(--accentA11);
       opacity: 1;
     }
   }

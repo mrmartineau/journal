@@ -3,8 +3,10 @@
   import type { EntryWithJournals } from '../types/entry';
   import { formatDate } from './dates';
   import Pill from './Pill.svelte';
+  import Modal from './Modal.svelte';
   export let entry: EntryWithJournals;
   export let isViewDetail: boolean = false;
+  let showModal = false;
 </script>
 
 <div class="j-entry">
@@ -29,8 +31,8 @@
           <a href="/entry/{entry.id}">Link</a>
         {:else}
           <a href="{entry.id}/edit">Edit</a>
-          <button onclick="d.showModal()">Delete</button>
-          <dialog id="d">
+          <button on:click="{() => (showModal = true)}">Delete</button>
+          <Modal bind:showModal="{showModal}" centre>
             <form method="POST" action="?/delete" class="flow">
               <p>Delete this entry?</p>
               <input type="hidden" name="id" value="{entry.id}" />
@@ -38,7 +40,7 @@
                 <button aria-label="Delete this entry">Confirm</button>
               </footer>
             </form>
-          </dialog>
+          </Modal>
         {/if}
       </footer>
     </article>

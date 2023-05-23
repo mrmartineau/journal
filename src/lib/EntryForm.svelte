@@ -122,7 +122,7 @@
               </div>
             </fieldset>
           {/if}
-          <button type="submit">Save</button>
+          <button type="submit">Save <i class="ph-duotone ph-floppy-disk-back"></i></button>
         </div>
       </div>
     </form>

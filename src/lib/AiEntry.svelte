@@ -83,31 +83,38 @@
   interface AiOption {
     action: HandleAIAction;
     label: string;
+    icon: string;
   }
   const aiOptions: AiOption[] = [
     {
       action: 'continue',
-      label: 'Continue writing'
+      label: 'Continue writing',
+      icon: 'ph-pencil-line'
     },
     {
       action: 'improve',
-      label: 'Improve writing'
+      label: 'Improve writing',
+      icon: 'ph-magic-wand'
     },
     {
       action: 'fix',
-      label: 'Fix grammar'
+      label: 'Fix grammar',
+      icon: 'ph-checks'
     },
     {
       action: 'shorter',
-      label: 'Make shorter'
+      label: 'Make shorter',
+      icon: 'ph-sort-descending'
     },
     {
       action: 'longer',
-      label: 'Make longer'
+      label: 'Make longer',
+      icon: 'ph-sort-ascending'
     },
     {
       action: 'simplify',
-      label: 'Simplify'
+      label: 'Simplify',
+      icon: 'ph-sparkle'
     }
     // {
     //   action: 'tone:casual',
@@ -123,7 +130,9 @@
 <div class="j-entryForm-aiContainer">
   {#if aiSuggestion}
     <div class="j-entryForm-ai-suggestion">
-      <SvelteMarkdown source="{aiSuggestion}" />
+      <div class="j-entryForm-ai-suggestion-content flow">
+        <SvelteMarkdown source="{aiSuggestion}" />
+      </div>
       {#if !aiLoading}
         <div in:fade>
           <button
@@ -132,6 +141,7 @@
             on:click="{() => handleInsertAISuggestion('replace', aiSuggestion)}"
             disabled="{aiLoading}"
           >
+            <i class="ph-duotone ph-swap"></i>
             Replace
           </button>
           <button
@@ -140,6 +150,7 @@
             on:click="{() => handleInsertAISuggestion('insert', aiSuggestion)}"
             disabled="{aiLoading}"
           >
+            <i class="ph-duotone ph-caret-down"></i>
             Insert below
           </button>
           <button
@@ -148,6 +159,7 @@
             on:click="{handleClearAISuggestion}"
             disabled="{aiLoading}"
           >
+            <i class="ph-duotone ph-backspace"></i>
             Clear AI suggestion
           </button>
         </div>
@@ -158,7 +170,6 @@
   {#if entryContent?.length}<div
       class="j-entryForm-ai-options j-flex-centre j-flex-wrap"
     >
-      AI:
       {#each aiOptions as item}
         <button
           class="j-btn-ai"
@@ -168,6 +179,7 @@
           aria-pressed="{aiAction === item.action}"
           disabled="{isEntryEmpty || aiLoading}"
         >
+          <i class="ph-duotone {item.icon}"></i>
           {item.label}
           {#if aiLoading && aiAction === item.action}<i
               class="ph-duotone ph-spinner-gap loading"
@@ -184,12 +196,15 @@
     padding: var(--space-xs);
   }
   .j-entryForm-ai-suggestion {
-    margin-block-end: var(--space-s);
+    border-bottom: 1px solid var(--accentA5);
+    padding-block-end: var(--space-xs);
+    margin-block-end: var(--space-xs);
 
     :global(p) {
       margin-block-start: 0;
     }
   }
+
   .j-entryForm-ai-options {
     gap: var(--space-3xs);
   }
