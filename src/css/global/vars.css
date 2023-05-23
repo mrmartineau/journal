@@ -1,6 +1,6 @@
 :root {
   --bg: var(--accent2);
-  --text: var(--accent11);
+  --text: var(--accent12);
   --color-nav: theme(colors.zinc.700);
   --color-nav-active: theme(colors.zinc.800);
   --border: var(--accent5);

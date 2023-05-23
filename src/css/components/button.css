@@ -1,3 +1,12 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 button,
 input[type='submit'],
 input[type='button'],
@@ -18,10 +27,19 @@ input[type='reset'] {
   line-height: var(--line-height);
   font-size: var(--font-size);
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
 
-  [aria-pressed='true'],
-  &:hover {
-    --bg: var(--accent8);
+  i {
+    animation: spin 1s linear infinite;
+  }
+
+  &:not([disabled]) {
+    [aria-pressed='true'],
+    &:hover {
+      --bg: var(--focus);
+    }
   }
 
   &.j-btn-secondary {
@@ -32,18 +50,30 @@ input[type='reset'] {
 
   &.j-btn-ai {
     --bg: transparent;
-    --color: var(--theme10);
-    --focus: var(--theme8);
+    --color: var(--accent10);
+    --focus: var(--accent11);
     --padding: 0 var(--space-2xs);
     --font-size: var(--step--3);
     --line-height: 1.7;
     --border-radius: 2rem;
-    border: 1px solid;
+    --border: var(--accentA10);
+    border: 1px solid var(--border);
 
-    [aria-pressed='true'],
-    &:hover {
-      --color: var(--theme11);
+    &:not([disabled]):hover {
+      --color: var(--focus);
       --bg: transparent;
+      --border: var(--accentA11);
+    }
+
+    &[disabled] {
+      opacity: 0.5;
+    }
+
+    &[disabled][aria-pressed='true'] {
+      --color: var(--focus);
+      --bg: transparent;
+      --border: var(--accentA11);
+      opacity: 1;
     }
   }
 }

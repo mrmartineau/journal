@@ -6,7 +6,7 @@
 
 <style lang="postcss">
   a {
-    color: var(--muted-color);
+    color: var(--accent11);
     background: var(--accent5);
     border-radius: 0.25rem;
     padding: 0 var(--space-2xs);

@@ -64,6 +64,18 @@
   --indigo10: hsl(226, 58.6%, 51.3%);
   --indigo11: hsl(226, 55%, 45%);
   --indigo12: hsl(226, 62%, 17%);
+  --indigoA1: hsla(240, 92.6%, 26.5%, 0.008);
+  --indigoA2: hsla(223, 100%, 51%, 0.028);
+  --indigoA3: hsla(224, 100%, 50.1%, 0.059);
+  --indigoA4: hsla(223, 98%, 48.5%, 0.099);
+  --indigoA5: hsla(225, 98.6%, 46.4%, 0.15);
+  --indigoA6: hsla(224, 99.5%, 44.9%, 0.224);
+  --indigoA7: hsla(225, 99.7%, 43.9%, 0.318);
+  --indigoA8: hsla(226, 99.5%, 43.1%, 0.448);
+  --indigoA9: hsla(226, 100%, 41.2%, 0.757);
+  --indigoA10: hsla(226, 99.8%, 37.1%, 0.773);
+  --indigoA11: hsla(226, 99.6%, 31.1%, 0.797);
+  --indigoA12: hsla(226, 99.3%, 11.4%, 0.938);
   --indigoDark1: hsl(229, 24%, 10%);
   --indigoDark2: hsl(230, 36.4%, 12.9%);
   --indigoDark3: hsl(228, 43.3%, 17.5%);
@@ -76,6 +88,18 @@
   --indigoDark10: hsl(227, 75.2%, 61.6%);
   --indigoDark11: hsl(228, 100%, 75.9%);
   --indigoDark12: hsl(226, 83%, 96.3%);
+  --indigoDarkA1: hsla(0, 0%, 0%, 0);
+  --indigoDarkA2: hsla(234, 97.4%, 59.9%, 0.059);
+  --indigoDarkA3: hsla(228, 99.2%, 61.7%, 0.144);
+  --indigoDarkA4: hsla(227, 99.7%, 62%, 0.211);
+  --indigoDarkA5: hsla(227, 99.2%, 62.3%, 0.27);
+  --indigoDarkA6: hsla(226, 99.9%, 62.1%, 0.35);
+  --indigoDarkA7: hsla(226, 99.9%, 62%, 0.471);
+  --indigoDarkA8: hsla(226, 99.9%, 62.1%, 0.655);
+  --indigoDarkA9: hsla(226, 99.9%, 63.6%, 0.848);
+  --indigoDarkA10: hsla(227, 99.8%, 67.7%, 0.893);
+  --indigoDarkA11: hsla(227, 100%, 76.3%, 0.98);
+  --indigoDarkA12: hsla(226, 100%, 97.5%, 0.98);
 
   --theme1: var(--mauve1);
   --theme2: var(--mauve2);
@@ -87,7 +111,7 @@
   --theme8: var(--mauve8);
   --theme9: var(--mauve9);
   --theme10: var(--mauve10);
-  --theme11: var(--mauve12);
+  --theme11: var(--mauve11);
   --theme12: var(--mauve12);
   --accent1: var(--indigo1);
   --accent2: var(--indigo2);
@@ -99,8 +123,20 @@
   --accent8: var(--indigo8);
   --accent9: var(--indigo9);
   --accent10: var(--indigo10);
-  --accent11: var(--indigo12);
+  --accent11: var(--indigo11);
   --accent12: var(--indigo12);
+  --accentA1: var(--indigoA1);
+  --accentA2: var(--indigoA2);
+  --accentA3: var(--indigoA3);
+  --accentA4: var(--indigoA4);
+  --accentA5: var(--indigoA5);
+  --accentA6: var(--indigoA6);
+  --accentA7: var(--indigoA7);
+  --accentA8: var(--indigoA8);
+  --accentA9: var(--indigoA9);
+  --accentA10: var(--indigoA10);
+  --accentA11: var(--indigoA11);
+  --accentA12: var(--indigoA12);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -115,7 +151,7 @@
     --theme8: var(--mauveDark8);
     --theme9: var(--mauveDark9);
     --theme10: var(--mauveDark10);
-    --theme11: var(--mauveDark12);
+    --theme11: var(--mauveDark11);
     --theme12: var(--mauveDark12);
     --accent1: var(--indigoDark1);
     --accent2: var(--indigoDark2);
@@ -127,7 +163,19 @@
     --accent8: var(--indigoDark8);
     --accent9: var(--indigoDark9);
     --accent10: var(--indigoDark10);
-    --accent11: var(--indigoDark12);
+    --accent11: var(--indigoDark11);
     --accent12: var(--indigoDark12);
+    --accentA1: var(--indigoDarkA1);
+    --accentA2: var(--indigoDarkA2);
+    --accentA3: var(--indigoDarkA3);
+    --accentA4: var(--indigoDarkA4);
+    --accentA5: var(--indigoDarkA5);
+    --accentA6: var(--indigoDarkA6);
+    --accentA7: var(--indigoDarkA7);
+    --accentA8: var(--indigoDarkA8);
+    --accentA9: var(--indigoDarkA9);
+    --accentA10: var(--indigoDarkA10);
+    --accentA11: var(--indigoDarkA11);
+    --accentA12: var(--indigoDarkA12);
   }
 }

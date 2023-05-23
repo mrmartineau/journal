@@ -14,10 +14,10 @@ export async function POST({ request }) {
       openai: openai,
       handler: {
         onContent(content, isFinal, stream) {
-          console.log(content, 'isFinal?', isFinal);
+          // console.log(content, 'isFinal?', isFinal);
         },
         onDone(stream) {
-          console.log('Done!');
+          // console.log('Done!');
         },
         onError(error, stream) {
           console.error(error);

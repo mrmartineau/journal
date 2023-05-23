@@ -4,15 +4,12 @@
   import autosize from 'autosize';
   import { formatDate } from './dates';
   import { isYesterday, isToday } from 'date-fns';
-  import {
-    createParser,
-    type ParsedEvent,
-    type ReconnectInterval
-  } from 'eventsource-parser';
-  import SvelteMarkdown from 'svelte-markdown';
+  import AiEntry from './AiEntry.svelte';
+  import { fade } from 'svelte/transition';
 
   export let journals: any[] | null = [];
   export let entry: any = null;
+  let entryContent: string = entry?.entry || '';
   let date = entry?.date || new Date().toISOString().slice(0, 10);
   let endDate = entry?.end_date
     ? new Date(entry?.end_date).toISOString().slice(0, 10)
@@ -24,68 +21,12 @@
     ? 'Yesterday'
     : '';
 
-  /**
-   * AI
-   */
-  let aiSuggestion = '';
-  type HandleAIAction =
-    | 'continue'
-    | 'improve'
-    | 'fix'
-    | 'shorter'
-    | 'longer'
-    | 'simplify'
-    | 'tone:casual'
-    | 'tone:confident';
-  const handleAI = async (action: HandleAIAction) => {
-    handleClearAISuggestion()
-
-    const aiResponse = await fetch('/api/ai', {
-      method: 'POST',
-      body: JSON.stringify({
-        action,
-        entry
-      })
-    });
-    const reader = aiResponse.body
-      ?.pipeThrough(new TextDecoderStream())
-      .getReader();
-
-    function onParse(event: ParsedEvent | ReconnectInterval) {
-      if (event.type === 'event') {
-        try {
-          const data = JSON.parse(event.data);
-          const content = data?.choices[0]?.delta?.content;
-          console.log('content: %s', content);
-          if (content !== undefined) {
-            aiSuggestion += content;
-          }
-        } catch (e) {
-          console.log('error parsing data: %s', event.data);
-        }
-      } else if (event.type === 'reconnect-interval') {
-        console.log(
-          'We should set reconnect interval to %d milliseconds',
-          event.value
-        );
-      }
-    }
-
-    const parser = createParser(onParse);
-
-    while (true) {
-      const { value, done } = await reader?.read();
-      if (done) {
-        break;
-      }
-      parser.feed(value);
-    }
-  };
-  const handleInsertAISuggestion = (action: 'replace' | 'insert') => {
-    entry = action === 'replace' ? aiSuggestion : entry + '\n' + aiSuggestion;
-  };
-  const handleClearAISuggestion = () => {
-    aiSuggestion = '';
+  const handleInsertAISuggestion = (
+    action: 'replace' | 'insert',
+    suggestion: string
+  ) => {
+    entryContent =
+      action === 'replace' ? suggestion : entry + '\n' + suggestion;
   };
 
   onMount(() => {
@@ -112,129 +53,24 @@
         <fieldset>
           <label for="entry" class="visually-hidden">Entry</label>
         </fieldset>
-        {#if entry?.entry}
-          <!-- svelte-ignore a11y-autofocus -->
-          <!-- prettier-ignore -->
-          <textarea
-            id="entry"
-            name="entry"
-            required
-            placeholder="What happened today?"
-            autofocus
-            bind:value="{entry.entry}"
-          ></textarea>
-        {:else}
-          <!-- svelte-ignore a11y-autofocus -->
-          <textarea
-            id="entry"
-            name="entry"
-            required
-            placeholder="What happened?"
-            autofocus
-            bind:value="{entry}"
-          ></textarea>
-        {/if}
+        <!-- svelte-ignore a11y-autofocus -->
+        <textarea
+          id="entry"
+          name="entry"
+          required
+          placeholder="What happened?"
+          autofocus
+          bind:value="{entryContent}"
+        ></textarea>
 
-        <div class="j-entryForm-aiContainer">
-          {#if aiSuggestion}
-            <div class="j-entryForm-ai-suggestion">
-              <SvelteMarkdown source="{aiSuggestion}" />
-              <!-- <div class="j-entryForm-ai-suggested-content">
-                {@html aiSuggestion}
-              </div> -->
-              <!-- <textarea bind:value="{aiSuggestion}"></textarea> -->
-              <button
-                class="j-btn-ai"
-                type="button"
-                on:click="{() => handleInsertAISuggestion('replace')}"
-              >
-                Replace
-              </button>
-              <button
-                class="j-btn-ai"
-                type="button"
-                on:click="{() => handleInsertAISuggestion('insert')}"
-              >
-                Insert below
-              </button>
-              <button
-                class="j-btn-ai"
-                type="button"
-                on:click="{handleClearAISuggestion}"
-              >
-                Clear AI suggestion
-              </button>
-            </div>
-          {/if}
-
-          <div class="j-entryForm-ai-options j-flex-centre j-flex-wrap">
-            <button
-              class="j-btn-ai"
-              type="button"
-              on:click="{() => handleAI('continue')}"
-              formaction="?/ai"
-              aria-pressed="{true}"
-            >
-              Continue writing
-            </button>
-            <button
-              class="j-btn-ai"
-              type="button"
-              on:click="{() => handleAI('improve')}"
-              formaction="?/ai"
-            >
-              Improve writing
-            </button>
-            <button
-              class="j-btn-ai"
-              type="button"
-              on:click="{() => handleAI('fix')}"
-              formaction="?/ai"
-            >
-              Fix spelling and grammar
-            </button>
-            <button
-              class="j-btn-ai"
-              type="button"
-              on:click="{() => handleAI('shorter')}"
-              formaction="?/ai"
-            >
-              Make shorter
-            </button>
-            <button
-              class="j-btn-ai"
-              type="button"
-              on:click="{() => handleAI('longer')}"
-              formaction="?/ai"
-            >
-              Make longer
-            </button>
-            <button
-              class="j-btn-ai"
-              type="button"
-              on:click="{() => handleAI('simplify')}"
-              formaction="?/ai"
-            >
-              Simplify language
-            </button>
-            <button
-              class="j-btn-ai"
-              type="button"
-              on:click="{() => handleAI('tone:casual')}"
-              formaction="?/ai"
-            >
-              More casual
-            </button>
-            <button
-              class="j-btn-ai"
-              type="button"
-              on:click="{() => handleAI('tone:confident')}"
-              formaction="?/ai"
-            >
-              More confident
-            </button>
+        {#if entryContent?.length}
+          <div transition:fade>
+            <AiEntry
+              entryContent="{entryContent}"
+              handleInsertAISuggestion="{handleInsertAISuggestion}"
+            />
           </div>
-        </div>
+        {/if}
       </div>
       <div class="form-secondary">
         <div class="form-secondary-content">
@@ -354,15 +190,6 @@
     font-size: var(--step-1);
     color: var(--accent10);
   }
-  .j-entryForm-aiContainer {
-  }
-  .j-entryForm-ai-suggestion {
-    margin-block-end: var(--space-s);
-  }
-  .j-entryForm-ai-options {
-    gap: var(--space-3xs);
-  }
-
   .j-entryForm-journals-list {
     margin-block-start: var(--space-xs);
     display: flex;
