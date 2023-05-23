@@ -29,7 +29,7 @@ export const load: PageServerLoad = async ({
 };
 
 export const actions = {
-  default: async ({ params, request, locals: { supabase } }) => {
+  save: async ({ params, request, locals: { supabase } }) => {
     const formData = await request.formData();
     const formDataObject = parseForm(formData);
 

@@ -151,7 +151,7 @@
             Clear AI suggestion
           </button>
         </div>
-        {/if}
+      {/if}
     </div>
   {/if}
 
@@ -169,7 +169,9 @@
           disabled="{isEntryEmpty || aiLoading}"
         >
           {item.label}
-          {#if aiLoading && aiAction === item.action}<i class="ph-duotone ph-spinner-gap loading"></i>{/if}
+          {#if aiLoading && aiAction === item.action}<i
+              class="ph-duotone ph-spinner-gap loading"
+            ></i>{/if}
         </button>
       {/each}
     </div>{/if}

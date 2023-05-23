@@ -6,14 +6,16 @@
   import { isYesterday, isToday } from 'date-fns';
   import AiEntry from './AiEntry.svelte';
   import { fade } from 'svelte/transition';
+  import DateInput from './DateInput.svelte';
 
   export let journals: any[] | null = [];
   export let entry: any = null;
   let entryContent: string = entry?.entry || '';
   let date = entry?.date || new Date().toISOString().slice(0, 10);
-  let endDate = entry?.end_date
-    ? new Date(entry?.end_date).toISOString().slice(0, 10)
-    : undefined;
+  // Uncomment this to enable end date
+  // let endDate = entry?.end_date
+  //   ? new Date(entry?.end_date).toISOString().slice(0, 10)
+  //   : undefined;
   let multipleDays = entry?.end_date || false;
   $: dayString = isToday(new Date(date))
     ? 'Today'
@@ -78,32 +80,19 @@
             <label for="date" class="visually-hidden">
               {#if multipleDays}Start date{:else}Date{/if}
             </label>
-            <div class="j-date-field j-flex-centre">
-              <i class="ph-duotone ph-calendar-blank"></i>
-              <input
-                type="date"
-                id="date"
-                name="date"
-                bind:value="{date}"
-                on:input="{() => console.log('New value:', date)}"
-                required
-              />
-            </div>
+            <DateInput name="date" bind:value="{date}" />
           </fieldset>
-          {#if multipleDays}
+
+          <!-- Uncomment this to allow multiple day entry -->
+          <!-- {#if multipleDays}
             <fieldset>
               <label for="end_date" class="visually-hidden">
                 End date (optional)
               </label>
-              <input
-                type="date"
-                id="end_date"
-                name="end_date"
-                value="{endDate}"
-              />
+              <DateInput name="end_date" bind:value="{endDate}" />
             </fieldset>
           {/if}
-          <!-- <div class="j-flex-centre">
+          <div class="j-flex-centre">
             <label for="multipleDays">
               <input
                 type="checkbox"
@@ -114,6 +103,7 @@
               Multiple days?
             </label>
           </div> -->
+
           {#if journals?.length}
             <fieldset class="j-entryForm-journals-container">
               <legend class="visually-hidden">Journal</legend>
@@ -164,22 +154,21 @@
     }
   }
   .form-main {
-    width: 80%;
+    @media screen and (min-width: 850px) {
+      width: 70%;
+    }
   }
   .form-secondary {
-    width: 20%;
     font-size: var(--step--1);
     position: relative;
+
+    @media screen and (min-width: 850px) {
+      width: 30%;
+    }
   }
   .form-secondary-content {
     position: sticky;
     top: 1rem;
-  }
-  /* input[type='date'] {
-    width: fit-content;
-  } */
-  .j-date-field {
-    gap: var(--space-2xs);
   }
   textarea {
     all: unset;

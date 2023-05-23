@@ -17,16 +17,21 @@ label {
   margin-block-end: var(--space-2xs);
 }
 input {
+  font-family: var(--f-mono);
+  line-height: 1;
+
   &[type='text'],
   &[type='date'],
   &[type='email'],
   &[type='password'] {
     all: unset;
+    line-height: 1;
     background: transparent;
     border: 1px solid var(--color-gray-300);
     border-radius: 0.2rem;
     padding: var(--space-2xs) var(--space-xs);
     border: 2px solid var(--theme6);
+    align-items: center;
 
     &:focus {
       border-color: var(--accent8);

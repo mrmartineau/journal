@@ -16,7 +16,9 @@
           <time>{formatDate(entry.date)}</time>
         </div>
       {/if}
-      <SvelteMarkdown source="{entry.entry}" />
+      <div class="flow">
+        <SvelteMarkdown source="{entry.entry}" />
+      </div>
       <footer class="j-flex-centre">
         {#if entry.journals?.name}
           <Pill href="{`/journal/${entry.journals.id}`}">
@@ -61,5 +63,6 @@
     gap: var(--space-2xs);
     font-size: var(--step-0);
     color: var(--theme10);
+    font-variation-settings: 'wght' 400, 'wdth' 125;
   }
 </style>
