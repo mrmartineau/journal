@@ -34,6 +34,7 @@
     border: none;
     padding: 0;
     position: relative;
+    background: var(--theme6);
 
     &.centre {
       text-align: center;
