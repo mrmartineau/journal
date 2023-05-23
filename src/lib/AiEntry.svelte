@@ -169,7 +169,7 @@
           disabled="{isEntryEmpty || aiLoading}"
         >
           {item.label}
-          {#if aiLoading && aiAction === item.action}<i class="ph-duotone ph-spinner-gap"></i>{/if}
+          {#if aiLoading && aiAction === item.action}<i class="ph-duotone ph-spinner-gap loading"></i>{/if}
         </button>
       {/each}
     </div>{/if}

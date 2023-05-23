@@ -26,7 +26,7 @@
     suggestion: string
   ) => {
     entryContent =
-      action === 'replace' ? suggestion : entry + '\n' + suggestion;
+      action === 'replace' ? suggestion : entryContent + '\n' + suggestion;
   };
 
   onMount(() => {

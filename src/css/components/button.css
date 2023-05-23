@@ -31,7 +31,7 @@ input[type='reset'] {
   align-items: center;
   gap: var(--space-3xs);
 
-  i {
+  i.loading {
     animation: spin 1s linear infinite;
   }
 
