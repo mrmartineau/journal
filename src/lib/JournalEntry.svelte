@@ -27,9 +27,9 @@
             {entry.journals.name}
           </Pill>
         {/if}
-        <a href="{entry.id}/edit">
+        <a href="/entry/{entry.id}/edit">
           <i class="ph-duotone ph-pencil-simple"></i>
-           Edit
+          Edit
         </a>
         {#if !isViewDetail}
           <a href="/entry/{entry.id}">

@@ -16,16 +16,22 @@
   let aiLoading = false;
   let aiAction: HandleAIAction | undefined;
   $: isEntryEmpty = entryContent?.length ? false : true;
+  $: model = 'gpt-3.5-turbo';
+
+  const handleChangeModel = (event: Event) => {
+    model = (event.target as HTMLSelectElement).value;
+  };
 
   type HandleAIAction =
-    | 'continue'
-    | 'improve'
-    | 'fix'
-    | 'shorter'
-    | 'longer'
-    | 'simplify'
-    | 'tone:casual'
-    | 'tone:confident';
+  | 'continue'
+  | 'improve'
+  | 'fix'
+  | 'shorter'
+  | 'longer'
+  | 'simplify'
+  | 'tone:casual'
+  | 'tone:confident'
+  | 'emojis';
   const handleAI = async (action: HandleAIAction) => {
     aiLoading = true;
     aiAction = action;
@@ -35,7 +41,8 @@
       method: 'POST',
       body: JSON.stringify({
         action,
-        entry: entryContent
+        entry: entryContent,
+        model,
       })
     });
     const reader = aiResponse.body
@@ -100,6 +107,11 @@
       action: 'fix',
       label: 'Fix grammar',
       icon: 'ph-checks'
+    },
+    {
+      action: 'emojis',
+      label: 'Add emojis',
+      icon: 'ph-smiley-wink'
     },
     {
       action: 'shorter',
@@ -170,6 +182,10 @@
   {#if entryContent?.length}<div
       class="j-entryForm-ai-options j-flex-centre j-flex-wrap"
     >
+    <select on:change="{handleChangeModel}">
+      <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+      <option value="gpt-4">gpt-4</option>
+    </select>
       {#each aiOptions as item}
         <button
           class="j-btn-ai"

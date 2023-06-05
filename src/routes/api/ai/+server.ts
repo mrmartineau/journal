@@ -25,9 +25,11 @@ export async function POST({ request }) {
       }
     };
 
-    const { action, entry } = await request.json();
+    const { action, entry, model } = await request.json();
+    const aiModel = model || 'gpt-3.5-turbo';
+    console.log(`🚀 ~ POST ~ aiModel:`, aiModel);
     const systemPromptBase =
-      'You are a helpful journaling assistant that helps people write better journal entries. Output in markdown format. Do not use links. Do not include a date in the output. Only respond in the first person and do not give advice or comment on the content, only output as if the content was written by the user. Use line breaks and double line breaks to represent paragraphs throughout the output. Add emojis that relate to the content in relevant places. Use British English spelling, not American English.';
+      'You are a helpful journaling assistant that helps people write better journal entries. Output in markdown format. Do not use links. Do not include a date in the output. Only respond in the first person, as if you are the person writing the journal entry, and do not give advice or comment on the content, only output as if the content was written by the user. Use line breaks and double line breaks to represent paragraphs throughout the output. Add emojis that relate to the content in relevant places. Use British English spelling, not American English.';
     let systemPrompt = '';
     switch (action) {
       case 'continue':
@@ -58,6 +60,10 @@ export async function POST({ request }) {
         systemPrompt =
           'Make the tone of the following journal entry more confident:';
         break;
+      case 'emojis':
+        systemPrompt =
+          'Add emojis throughout the following journal entry content, not just at the beginning of sentences, that relate to the content. Do not edit or improve the content other than adding emojis:';
+        break;
 
       default:
         systemPrompt = systemPromptBase;
@@ -66,7 +72,7 @@ export async function POST({ request }) {
     const openaiStreamResponse =
       await await OpenAIExt.streamServerChatCompletion(
         {
-          model: 'gpt-3.5-turbo',
+          model: aiModel,
           messages: [
             {
               role: 'system',
