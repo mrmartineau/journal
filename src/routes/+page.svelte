@@ -25,8 +25,10 @@
   <EntryForm journals="{journals}" />
 
   {#if entries}
-    {#each entries as item}
-      <JournalEntry entry="{item}" isViewDetail="{false}" />
-    {/each}
+    <div id="entries">
+      {#each entries as item}
+        <JournalEntry entry="{item}" isViewDetail="{false}" />
+      {/each}
+    </div>
   {/if}
 {/if}

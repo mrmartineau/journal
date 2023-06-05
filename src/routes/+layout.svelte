@@ -34,7 +34,7 @@
       </a>
       <a href="/profile">
         <i class="ph-duotone ph-user-circle"></i>
-        Admin
+        Profile
       </a>
     {:else}
       <a href="/login">

@@ -27,10 +27,16 @@
             {entry.journals.name}
           </Pill>
         {/if}
+        <a href="{entry.id}/edit">
+          <i class="ph-duotone ph-pencil-simple"></i>
+           Edit
+        </a>
         {#if !isViewDetail}
-          <a href="/entry/{entry.id}">Link</a>
+          <a href="/entry/{entry.id}">
+            <span class="visually-hidden">Link</span>
+            <i class="ph-duotone ph-link-simple"></i>
+          </a>
         {:else}
-          <a href="{entry.id}/edit">Edit</a>
           <button on:click="{() => (showModal = true)}">Delete</button>
           <Modal bind:showModal="{showModal}" centre>
             <form method="POST" action="?/delete" class="flow">
@@ -58,6 +64,12 @@
   footer {
     font-size: var(--step--1);
     gap: var(--space-s);
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3xs);
+    }
   }
 
   .j-date {

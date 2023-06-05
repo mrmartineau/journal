@@ -69,7 +69,7 @@
     }
   }
   .modal-close {
-    all:unset;
+    all: unset;
     position: absolute;
     top: 0px;
     right: 3px;

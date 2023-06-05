@@ -31,6 +31,10 @@
       action === 'replace' ? suggestion : entryContent + '\n' + suggestion;
   };
 
+  const handleCopyToClipboard = async () => {
+    await navigator.clipboard.writeText(entryContent);
+  };
+
   onMount(() => {
     const textarea = document.querySelector('textarea');
     if (textarea) {
@@ -122,7 +126,19 @@
               </div>
             </fieldset>
           {/if}
-          <button type="submit">Save <i class="ph-duotone ph-floppy-disk-back"></i></button>
+          <div class="j-entryForm-actions">
+            <button
+              class="j-copy"
+              type="button"
+              on:click="{handleCopyToClipboard}"
+            >
+              <span class="visually-hidden">Copy</span>
+              <i class="ph-duotone ph-copy-simple"></i>
+            </button>
+            <button type="submit" on:click="{handleCopyToClipboard}">
+              Save <i class="ph-duotone ph-floppy-disk-back"></i>
+            </button>
+          </div>
         </div>
       </div>
     </form>
@@ -193,9 +209,16 @@
       display: block;
     }
   }
-  button[type='submit'] {
+  .j-entryForm-actions {
     margin-block-start: var(--space-s);
-    line-height: 2.7;
+    display: flex;
+    gap: var(--space-xs);
+  }
+  button[type='submit'] {
+    /* line-height: 2.7; */
     padding: 0 var(--space-m);
+  }
+  .j-copy {
+    padding: var(--space-xs);
   }
 </style>

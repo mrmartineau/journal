@@ -37,11 +37,10 @@ export const actions = {
       throw error;
     }
     if (newEntry?.length) {
-      throw redirect(303, `/entry/${newEntry[0].id}`);
+      throw redirect(303, `/#entries`);
     }
   },
-  ai: async ({ request, locals: { supabase, getSession } }) => {
-    const session = await getSession();
+  upload: async ({ request, locals: { supabase, getSession } }) => {
     const formData = await request.formData();
     const formDataObject = parseForm(formData);
     console.log(`🚀 ~ aiLookup: ~ formDataObject:`, formDataObject);
