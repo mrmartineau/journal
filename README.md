@@ -1,8 +1,17 @@
-# 📝 Journal app
+<div align="center">
+  <img src="https://github.com/mrmartineau/journal/blob/main/static/logo.png?raw=true" width="100" height="100" alt="Journal logo">
+  <h1>Journal</h1>
+  <h2>A personal journalling app</h2>
 
-### This is a _very_ basic journalling app. It's a work in progress.
+  <p>Built with SvelteKit and Supabase.</p>
 
-Built with SvelteKit and Supabase.
+  <p>
+    <img
+      src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"
+      alt="PRs welcome!"
+    />
+  </p>
+</div>
 
 ## Developing
 
@@ -20,7 +29,15 @@ pnpm dev --open
 To create a production version of your app:
 
 ```bash
-npm run build
+pnpm build
 ```
 
-You can preview the production build with `npm run preview`.
+You can preview the production build with `pnpm preview`.
+
+---
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/) © [Zander Martineau](https://zander.wtf)
+
+> Made by Zander • [zander.wtf](https://zander.wtf) • [GitHub](https://github.com/mrmartineau/) • [Mastodon](https://zander@toot.cafe)
