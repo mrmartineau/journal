@@ -4,5 +4,6 @@
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
-  "description": "A simple journal app"
+  "description": "A simple journal app",
+  "logo": "/logo.png"
 }

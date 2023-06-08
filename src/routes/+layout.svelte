@@ -29,8 +29,8 @@
   <nav>
     {#if session}
       <a href="/">
-        <i class="ph-duotone ph-notebook"></i>
-        Entries
+        <img src="/logo.png" alt="Journal logo" class="logo" />
+        Journal
       </a>
       <a href="/profile">
         <i class="ph-duotone ph-user-circle"></i>
@@ -64,5 +64,16 @@
   }
   nav i {
     vertical-align: baseline;
+  }
+
+  .logo {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-inline-end: 0.5rem;
+    vertical-align: middle;
+    @media (prefers-color-scheme: light) {
+      border-radius: 0.4rem;
+      box-shadow: 0 0 0 3px var(--indigoA6);
+    }
   }
 </style>
