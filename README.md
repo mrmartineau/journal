@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/mrmartineau/journal/blob/main/static/logo.png?raw=true" width="100" height="100" alt="Journal logo">
+  <img src="https://github.com/mrmartineau/journal/blob/main/static/app@0.5x.png?raw=true" width="100" height="100" alt="Journal logo">
   <h1>Journal</h1>
   <h2>A personal journalling app</h2>
 

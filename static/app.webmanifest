@@ -3,7 +3,8 @@
   "short_name": "Journal",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#fff",
+  "background_color": "#F5F8FF",
+  "theme_color": "#F5F8FF",
   "description": "A simple journal app",
-  "logo": "/logo.png"
+  "logo": "/app@1x.png"
 }

@@ -29,7 +29,7 @@
   <nav>
     {#if session}
       <a href="/">
-        <img src="/logo.png" alt="Journal logo" class="logo" />
+        <img src="/logo@0.5x.png" alt="Journal logo" class="logo" />
         Journal
       </a>
       <a href="/profile">
