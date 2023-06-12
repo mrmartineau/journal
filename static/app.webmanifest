@@ -1,10 +1,20 @@
 {
   "name": "📝 Journal",
   "short_name": "Journal",
-  "start_url": ".",
+  "scope": "/",
+  "id": "/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#F5F8FF",
   "theme_color": "#F5F8FF",
   "description": "A simple journal app",
-  "logo": "/app@1x.png"
+  "logo": "app@1x.png",
+  "icons": [
+    {
+      "src": "app@0.5x.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
 }

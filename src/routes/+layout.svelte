@@ -72,8 +72,10 @@
     margin-inline-end: 0.5rem;
     vertical-align: middle;
     @media (prefers-color-scheme: light) {
-      border-radius: 0.4rem;
-      box-shadow: 0 0 0 3px var(--indigoA6);
+      border-radius: 5px;
+      box-shadow: 0 0 0 2px var(--indigoA6);
+      /* filter: invert() hue-rotate(180deg); */
+      /* filter:  drop-shadow(0 0 0.1rem var(--indigo8)); */
     }
   }
 </style>
