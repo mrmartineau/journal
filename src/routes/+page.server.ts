@@ -37,7 +37,7 @@ export const actions = {
       throw error;
     }
     if (newEntry?.length) {
-      throw redirect(303, `/#entries`);
+      return { success: true };
     }
   },
   upload: async ({ request, locals: { supabase, getSession } }) => {

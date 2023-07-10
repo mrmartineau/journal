@@ -1,18 +1,27 @@
 <script lang="ts">
-  import type { PageData } from './$types';
+  import type { ActionData, PageData } from './$types';
   import JournalEntry from '$lib/JournalEntry.svelte';
   import EntryForm from '$lib/EntryForm.svelte';
+  import { invalidate } from '$app/navigation';
 
   export let data: PageData;
   $: ({ session, entries, journals } = data);
+
+  export let form: ActionData;
+  if (form?.success) {
+    invalidate('/');
+  }
 </script>
 
 <svelte:head>
   <title>Journal</title>
 </svelte:head>
 
-<!-- {#if journals?.length}
-  <div class="grid">
+{#if session}
+  <EntryForm journals="{journals}" />
+
+  <!-- {#if journals?.length}
+  <div class="text-center">
     {#each journals as item}
       <a href={`/journal/${item.id}`}>
         {item.name ?? ''}
@@ -20,9 +29,6 @@
     {/each}
   </div>
 {/if} -->
-
-{#if session}
-  <EntryForm journals="{journals}" />
 
   {#if entries}
     <div id="entries">
